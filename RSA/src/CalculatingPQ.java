@@ -25,13 +25,15 @@ public class CalculatingPQ {
 		BigInteger q = b.subtract(sqrt(b.pow(2).subtract(c.multiply(BigInteger.valueOf(4L))))).divide(BigInteger.valueOf(2L));
 		
 		if(checkPQ(p,q,N)) {
-			if(p.compareTo(q) == -1) {
-				System.out.println("Smallest Prime: " + p);
-			}
-			System.out.println("Smallest Prime: " + q);
+			System.out.println("Smallest Prime: " + smallestPrime(p, q));
 		}
 		
 		
+	}
+	
+	public static BigInteger smallestPrime(BigInteger p, BigInteger q) {
+		if(p.compareTo(q) == -1) { return p;}
+		return q;
 	}
 	
 	public static void phi(BigInteger e, BigInteger d, BigInteger k, BigInteger n) {
@@ -120,7 +122,7 @@ public class CalculatingPQ {
 		        // Step 5
 		        BigInteger p = y.subtract(BigInteger.ONE).gcd(n);
 		        BigInteger q = n.divide(p);
-		        System.out.println("P: " + p + "\nQ: " + q);
+		        System.out.println("Smallest Prime: " + smallestPrime(p, q));
 		        return null;
 		    }
 		}
